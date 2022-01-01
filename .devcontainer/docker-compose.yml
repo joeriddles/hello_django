@@ -1,0 +1,10 @@
+services:
+  code:
+    image: hello_django:code
+    build:
+      dockerfile: .devcontainer/Dockerfile
+      args:
+        - VARIANT=3.9
+        - NODE_VERSION=lts/*
+    volumes:
+      - ./:/app/

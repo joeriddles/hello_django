@@ -7,3 +7,5 @@ services:
       target: prod
     ports:
       - 8000:8000
+    environment:
+      - DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY
