@@ -1,0 +1,9 @@
+services:
+  app:
+    image: hello_django:dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    volumes:
+      - ./:/app/

@@ -1,0 +1,9 @@
+services:
+  app:
+    image: hello_django:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: prod
+    ports:
+      - 8000:8000

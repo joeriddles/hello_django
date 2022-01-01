@@ -2,6 +2,7 @@
 - [x] Finish Django tutorials
 - [x] Add `Dockerfile`
 - [ ] Add `docker-compose.yml`
+- [ ] Setup `.devcontainer`
 - [ ] Add Django-REST
 - [ ] Change from `sqlite` to `postgres`
 - [ ] Add formatter (`black`) and linter (`autopep8`)

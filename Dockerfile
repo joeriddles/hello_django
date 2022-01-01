@@ -9,4 +9,6 @@ WORKDIR /app
 CMD [ "gunicorn", "--bind=0.0.0.0:8000", "hello_django.wsgi" ]
 
 FROM prod as dev
+COPY requirements.dev.txt /tmp/requirements.dev.txt
+RUN pip install -r /tmp/requirements.dev.txt && rm /tmp/requirements.dev.txt
 CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
