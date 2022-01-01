@@ -1,7 +1,8 @@
 ## TODO
-- [ ] Finish Django tutorials
-- [ ] Add `Dockerfile`
+- [x] Finish Django tutorials
+- [x] Add `Dockerfile`
 - [ ] Add `docker-compose.yml`
+- [ ] Add Django-REST
 - [ ] Change from `sqlite` to `postgres`
 - [ ] Add formatter (`black`) and linter (`autopep8`)
 - [ ] Investigate type hints in Django (`django-stubs`)
