@@ -1,20 +1,30 @@
+from django.db.models.query import QuerySet
 from django.http import HttpResponse, HttpRequest
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
+from django.views import generic
 
 from polls.models import Choice, Question
 
 
-def index(request: HttpRequest) -> HttpResponse:
-    latest_questions = Question.objects.order_by("-pub_date")[:5]
-    context = { "latest_questions": latest_questions }
-    return render(request, "polls/index.html", context)
+class IndexView(generic.ListView):
+    template_name = "polls/index.html"
+    context_object_name = "latest_questions"
+
+    def get_queryset(self) -> QuerySet[Question]:
+        """Retrusn the last five published questions."""
+        return Question.objects.order_by("-pub_date")[:5]
 
 
-def detail(request: HttpRequest, question_id: int) -> HttpResponse:
-    question = get_object_or_404(Question, pk=question_id)
-    return render(request, "polls/detail.html", { "question": question })
+class DetailView(generic.DetailView):
+    model = Question
+    template_name = "polls/detail.html"
+
+
+class ResultsView(generic.DetailView):
+    model = Question
+    template_name = "polls/results.html"
 
 
 def vote(request: HttpRequest, question_id: int) -> HttpResponse:
@@ -34,8 +44,3 @@ def vote(request: HttpRequest, question_id: int) -> HttpResponse:
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))  # type: ignore
-
-
-def results(request: HttpRequest, question_id: int) -> HttpResponse:
-    question = get_object_or_404(Question, pk=question_id)
-    return render(request, "polls/results.html", { "question": question })
