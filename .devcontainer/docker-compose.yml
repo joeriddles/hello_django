@@ -6,5 +6,6 @@ services:
       args:
         - VARIANT=3.9
         - NODE_VERSION=lts/*
+    env_file: .env
     volumes:
       - ./:/app/
