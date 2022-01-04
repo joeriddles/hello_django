@@ -10,3 +10,6 @@
 - [ ] Invtestigate `pytest` with Django (`pytest-django`)
 - [ ] Add `Selenium`
 - [ ] Add Vue.js
+- [ ] Deploy to Azure
+- [ ] Deploy to AWS
+- [ ] Deploy using terraform

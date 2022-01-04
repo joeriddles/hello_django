@@ -13,3 +13,8 @@ python manage.py migrate
 ```
 python manage.py createsuperuser
 ```
+
+## Check settings for deployment
+```
+python manage.py check --deploy
+```
