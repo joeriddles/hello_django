@@ -6,6 +6,6 @@ services:
       dockerfile: Dockerfile
       target: dev
     volumes:
-      - ./:/app/
+      - ./app/:/app/
     environment:
       - DJANGO_DEBUG=1
