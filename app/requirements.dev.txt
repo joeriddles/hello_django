@@ -1,2 +1,4 @@
+autopep8
 django-stubs
+flake8
 python-dotenv

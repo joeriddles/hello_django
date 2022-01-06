@@ -4,9 +4,9 @@ ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH=/app
 COPY ./app/requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt && rm /tmp/requirements.txt
-COPY ./app /app
+COPY . /app
 WORKDIR /app
-CMD [ "gunicorn", "--bind=0.0.0.0:8000", "hello_django.wsgi" ]
+CMD [ "gunicorn", "--bind=0.0.0.0:8000", "app.hello_django.wsgi" ]
 
 FROM prod as dev
 COPY ./app/requirements.dev.txt /tmp/requirements.dev.txt
